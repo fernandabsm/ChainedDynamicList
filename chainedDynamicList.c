@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "chainedDynamicList.h"
 
 pList* creat_list()
@@ -71,7 +72,7 @@ pCell* at_Position(pList* list, int index)
 		return NULL;
 }
 
-/*function that returnt the index of the given element*/
+/*function that return the index of the given element*/
 int index_Of(pList* list, pCell* node)
 {
 	if (node != NULL)
@@ -92,7 +93,21 @@ int index_Of(pList* list, pCell* node)
 		return -1;
 }
 
+/*function that remove the first item of the list*/
 void remove_beginning(pList* list)
 {
+	if (!empty_list(list))
+	{
+		pCell* aux = list->first;
+		list->first = aux->next;
+		free(aux);
+		list->size--;
+	}
+	
+}
 
+/*function that verify if the list is empty*/
+bool empty_list(pList* list)
+{
+	return(list->size == 0);
 }
