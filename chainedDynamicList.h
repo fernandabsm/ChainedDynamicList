@@ -27,3 +27,7 @@ void insert_beginning_list(pList* list, pItem node);
 pCell* at_Position(pList* list, int index);
 
 int index_Of(pList* list, pCell* node);
+
+void remove_beginning(pList* list);
+
+bool empty_list(pList* list);
